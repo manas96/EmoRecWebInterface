@@ -3,7 +3,6 @@ from time import time
 from random import random
 from flask import Flask, render_template, make_response
 import os
-from multiprocessing import Process, Queue
 import pickle
 
 inputCamera = 0
@@ -22,7 +21,9 @@ def hello_world():
 def live_data():
     
   #  data = [time() * 1000, random() * 100]
-    with open('faceRecog/testfile', 'rb') as fp:
+    readFile = 'faceRecog/testfile'
+    #readFile = 'emorec/flaskPipe'
+    with open(readFile, 'rb') as fp:
         receivedData = pickle.load(fp)
         #receivedData format:
         #[a, d, h, n, sad, sur, frame]

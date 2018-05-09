@@ -1,64 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Flask Highcharts Live Data Demo</title>
 
-          <!-- Bootstrap -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multimodal emotion recognition</title>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Flask-Live-Chart</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-{#        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
-{#          <ul class="nav navbar-nav">#}
-{#            <li><a href="#">A link</a></li>#}
-{#          </ul>#}
-{#        </div><!-- /.navbar-collapse -->#}
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <style>
+      /* Note: Try to remove the following lines to see the effect of CSS positioning */
+      .affix {
+          top: 20px;
+          z-index: 9999 !important;
+      }
+            .affix {
+      
+        width: 100%;
+      }
+
+      .affix-top {
+        width: 100%;
+      }
+
+      .affix-bottom {
+        position: absolute;
+        width: 100%;  
+      }
+  </style>
+
+  
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Multimodal emotion recognition</a>
       </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">Dashboard</a>
+          </li>
+          <li>
+            <a href="#">Video Module</a>
+          </li>
+          <li>
+            <a href="#">Audio Module</a>
+          </li>
+          <li>
+            <a href="#">Text Module</a>
+          </li>
+        </ul>
+                  
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
+  </div>
 
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <!-- <div class="jumbotron">
       <div class="container-fluid">
         <br/>
         <p>Live data plotting using Flask and Highcharts.</p>
       </div>
+    </div> -->
+
+  <div class="container-fluid">
+  
+    <div class = "row">
+      <nav class="col-xs-3">
+          <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" id = "sidebar">
+            <li class="active"><a href="#section1">Section 1</a></li>
+            <li><a href="#section2">Section 2</a></li>
+            <li><a href="#section3">Section 3</a></li>
+          </ul>
+        </nav>
+     
+<!--     
+    <div class = "row " >
+        <div id="container">
+            <video autoplay="true" id="videoElement"></video>
+          </div>
+    </div> -->
+  
+
+    <div class="col-xs-9">
+      <div class="container-fluid" id="data-container"></div>
     </div>
 
-    <div class="container-fluid">
-      <!-- Example row of columns -->
-      <div class="column">
-
-          <div class="container-fluid" id="data-container"></div>
-
+    <div class="col-xs-9">
+      <div class="container-fluid" id="data-container2"></div>
+    </div>
+    <div class="col-xs-9">
+        <div class="container-fluid">
+            this tutorial you will learn how to apply pinning i.e. fixed positioning on a navbar or any other element automatically when they are scrolled beyond a certain distance as well as toggle its pinning on and off using the Bootstrap affix plugin. The pinning of an element is enabled through changing the value of its position CSS property from static to fixed.
+            To do this, the affix plugin toggles between three classes: .affix, .affix-top, and .affix-bottom. Each class represents a particular state.
+            Initially, the plugin adds .affix-top or .affix-bottom class to indicate the element is in its top-most or bottom-most position.
+            When the element scrolling past the offset limit provided by the data-offset- attribute the plugin replaces the .affix-top or .affix-bottom class with the .affix class (sets position: fixed;), which trigger the actual affixing.
+            At this point the appropriate CSS top or bottom property is required to determine the position of affix element on the viewport.
+            Let's check out the following example to see it in real actio
         </div>
-    </div>
-    <hr>
+      </div>
+      <div class="col-xs-9">
+          <div class="container-fluid" >
+              this tutorial you will learn how to apply pinning i.e. fixed positioning on a navbar or any other element automatically when they are scrolled beyond a certain distance as well as toggle its pinning on and off using the Bootstrap affix plugin. The pinning of an element is enabled through changing the value of its position CSS property from static to fixed.
+              To do this, the affix plugin toggles between three classes: .affix, .affix-top, and .affix-bottom. Each class represents a particular state.
+              Initially, the plugin adds .affix-top or .affix-bottom class to indicate the element is in its top-most or bottom-most position.
+              When the element scrolling past the offset limit provided by the data-offset- attribute the plugin replaces the .affix-top or .affix-bottom class with the .affix class (sets position: fixed;), which trigger the actual affixing.
+              At this point the appropriate CSS top or bottom property is required to determine the position of affix element on the viewport.
+              Let's check out the following example to see it in real actio
+          </div>
+        </div>
+  </div>
+</div>
+  <hr>
+  <!-- /container -->
 
-    </div> <!-- /container -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/highcharts-more.js"></script>
+  <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="http://code.highcharts.com/highcharts-more.js"></script>
-    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <!-- /custom scripts -->
+  <script src="/static/js/highcharts.js"></script>
+  <script src="/static/js/videoScript.js"></script>
 
-    <script src="/static/js/highcharts.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  </body>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+<script>
+    $("#sidebar").affix({
+offset: {
+  top: 60
+}
+});</script>
 </html>
