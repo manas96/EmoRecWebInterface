@@ -11,24 +11,14 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
   <style>
-      /* Note: Try to remove the following lines to see the effect of CSS positioning */
-      .affix {
-          top: 20px;
-          z-index: 9999 !important;
-      }
-            .affix {
-      
-        width: 100%;
-      }
 
-      .affix-top {
-        width: 100%;
-      }
-
-      .affix-bottom {
-        position: absolute;
-        width: 100%;  
-      }
+      video {
+    width: 100%;
+    height: 100%;
+  
+    z-index: 99999;
+    object-fit: cover;
+  }
   </style>
 
   
@@ -62,62 +52,59 @@
     </div>
   </div>
 
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <!-- <div class="jumbotron">
-      <div class="container-fluid">
-        <br/>
-        <p>Live data plotting using Flask and Highcharts.</p>
-      </div>
-    </div> -->
+ 
 
   <div class="container-fluid">
   
-    <div class = "row">
+    <!-- <div class = "row">
       <nav class="col-xs-3">
           <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" id = "sidebar">
             <li class="active"><a href="#section1">Section 1</a></li>
             <li><a href="#section2">Section 2</a></li>
             <li><a href="#section3">Section 3</a></li>
           </ul>
-        </nav>
+        </nav> -->
      
-<!--     
-    <div class = "row " >
-        <div id="container">
-            <video autoplay="true" id="videoElement"></video>
-          </div>
+    <!-- <div class="row">
+        <div class="col-xs-4" >
+          
+                <video autoplay="true" id="videoElement"></video>
+          
+        </div> 
     </div> -->
-  
-
-    <div class="col-xs-9">
-      <div class="container-fluid" id="data-container"></div>
+    <div class="row">
+      <h1 class="bg-success">Combined probabilities <small>Combined output of 3 modules</small></h1>
     </div>
-
-    <div class="col-xs-9">
-      <div class="container-fluid" id="data-container2"></div>
-    </div>
-    <div class="col-xs-9">
-        <div class="container-fluid">
-            this tutorial you will learn how to apply pinning i.e. fixed positioning on a navbar or any other element automatically when they are scrolled beyond a certain distance as well as toggle its pinning on and off using the Bootstrap affix plugin. The pinning of an element is enabled through changing the value of its position CSS property from static to fixed.
-            To do this, the affix plugin toggles between three classes: .affix, .affix-top, and .affix-bottom. Each class represents a particular state.
-            Initially, the plugin adds .affix-top or .affix-bottom class to indicate the element is in its top-most or bottom-most position.
-            When the element scrolling past the offset limit provided by the data-offset- attribute the plugin replaces the .affix-top or .affix-bottom class with the .affix class (sets position: fixed;), which trigger the actual affixing.
-            At this point the appropriate CSS top or bottom property is required to determine the position of affix element on the viewport.
-            Let's check out the following example to see it in real actio
-        </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="container-fluid" id="combinedLine"></div>
       </div>
-      <div class="col-xs-9">
-          <div class="container-fluid" >
-              this tutorial you will learn how to apply pinning i.e. fixed positioning on a navbar or any other element automatically when they are scrolled beyond a certain distance as well as toggle its pinning on and off using the Bootstrap affix plugin. The pinning of an element is enabled through changing the value of its position CSS property from static to fixed.
-              To do this, the affix plugin toggles between three classes: .affix, .affix-top, and .affix-bottom. Each class represents a particular state.
-              Initially, the plugin adds .affix-top or .affix-bottom class to indicate the element is in its top-most or bottom-most position.
-              When the element scrolling past the offset limit provided by the data-offset- attribute the plugin replaces the .affix-top or .affix-bottom class with the .affix class (sets position: fixed;), which trigger the actual affixing.
-              At this point the appropriate CSS top or bottom property is required to determine the position of affix element on the viewport.
-              Let's check out the following example to see it in real actio
-          </div>
-        </div>
+      <div class="col-xs-4">
+          <div class="container-fluid" id="combinedSpider"></div>
+      </div>
+      <div class="col-xs-4">
+          <div class="container-fluid" id="weights"></div>
+      </div>
+    </div>
+
+   <div class="row">
+        <h1 class="bg-success">Individual module probabilities</h1>
+   </div>
+   
+   <div class = "row">
+    <div class="col-xs-4">
+      <div class="container-fluid" id="video"></div>
+    </div>
+    <div class="col-xs-4">
+      <div class="container-fluid" id="audio"></div>
+    </div>
+    <div class="col-xs-4">
+      <div class="container-fluid" id="text"></div>
+    </div>
+   </div>
+    
   </div>
-</div>
+
   <hr>
   <!-- /container -->
 
@@ -127,16 +114,12 @@
   <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
     <!-- /custom scripts -->
-  <script src="/static/js/highcharts.js"></script>
-  <script src="/static/js/videoScript.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+
+  <!-- <script src="/static/js/videoScript.js"></script> -->
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
-<script>
-    $("#sidebar").affix({
-offset: {
-  top: 60
-}
-});</script>
+
 </html>

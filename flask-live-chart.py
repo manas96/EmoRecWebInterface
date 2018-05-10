@@ -5,35 +5,34 @@ from flask import Flask, render_template, make_response
 import os
 import pickle
 
-inputCamera = 0
-farmeSkip = 10
-
-
 app = Flask(__name__)
-#realtime_plot.run(inputCamera, farmeSkip)
-#os.system('python faceRecog/realtime_plot.py 0 10 &')
+#readFile = 'faceRecog/testfile'     #format : [a, d, h, n, sad, sur, frame]
+
+#format : [weightedAvgProbs, weights, videoProbs, toneProbs, speechProbs,    videoAttr         ]
+# size :  [    6                3           6       6           6             2  ]
+readFile = '/home/manas/Desktop/CombiningProbs/pickleFile' 
 
 @app.route('/')
-def hello_world():
+def renderHomePage():
     return render_template('index.html', data='test')
 
 @app.route('/live-data')
 def live_data():
-    
-  #  data = [time() * 1000, random() * 100]
-    readFile = 'faceRecog/testfile'
-    #readFile = 'emorec/flaskPipe'
+    '''
     with open(readFile, 'rb') as fp:
         receivedData = pickle.load(fp)
-        #receivedData format:
-        #[a, d, h, n, sad, sur, frame]
         print('Received data is : ',receivedData)
-    
+    '''
+    with open(readFile, 'rb') as fp:
+        pickeDump = pickle.load(fp)
+    receivedData = []
+    #convert to single 1D array
+    for array in pickeDump:
+        for element in array:
+            receivedData.append(element)
+
     response = make_response(json.dumps(receivedData))
     response.content_type = 'application/json'
     return response
-
-
-
 
 app.run(debug=True, host='127.0.0.1', port=5000)
